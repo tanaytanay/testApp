@@ -5,6 +5,11 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 
+import dashboard from '../screens/dashboard';
+import devices from '../screens/devices';
+import details from '../screens/details';
+
+
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
@@ -32,6 +37,34 @@ export default function BottomTabNavigator({ navigation, route }) {
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
         }}
       />
+
+
+      <BottomTab.Screen
+        name="dashboard"
+        component={dashboard}
+        options={{
+          title: 'dashboard',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="devices"
+        component={devices}
+        options={{
+          title: 'devices',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+        }}
+      />
+      <BottomTab.Screen
+        name="details"
+        component={details}
+        options={{
+          title: 'details',
+          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+        }}
+      />
+
+
     </BottomTab.Navigator>
   );
 }
@@ -43,6 +76,13 @@ function getHeaderTitle(route) {
     case 'Home':
       return 'How to get started';
     case 'Links':
+      return 'Links to learn more';
+
+    case 'dashboard':
+      return 'Links to learn more';
+    case 'devices':
+      return 'Links to learn more';
+    case 'details':
       return 'Links to learn more';
   }
 }
